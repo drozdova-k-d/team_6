@@ -15,7 +15,7 @@ class Table:
     #Преобразование данных таблицы в строку
     table_str += " ".join(self.columns) + "\n"
     for row in self.data:
-    # ЭТО препод пишет!!!
+    
         row_str = "".join([str(col]) for col in self.columns])
         table_str += row_str + "\n"
     return table_str
@@ -27,11 +27,9 @@ sLine = {"a":3, "b":9}
 table.add_row(fLine)
 table.add_row(sLine)
 
+print (table)
 
-  
-  
-  # У нас проверка в конце будет
-  
-  
-  #fLine = {"a" : 2, "b" : 4}
-#sLine = {"a" : 3, "b" : 9}
+if table:
+  print("Таблица не пустая")
+else:
+  print("Таблица пустая")
