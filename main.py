@@ -11,7 +11,16 @@ class Table:
     
   def __str__(self):
     table_str = "" 
+    table_str += " ".join(self.columns) + "\n"
+for row in self.data:
+  row_str = "".join([str(col]) for col in self.columns])
+  table_str += row_str + "\n"
+  return table_str
 
-    
-#fLine = {"a" : 2, "b" : 4}
+  
+  
+  
+  
+  
+  #fLine = {"a" : 2, "b" : 4}
 #sLine = {"a" : 3, "b" : 9}
