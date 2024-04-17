@@ -1,14 +1,18 @@
+# необходимый пакет 
+import csv
+
+# TODO - залить на репозиторий github
 import csv
 
 class Table:
   def __init__(self, src: list|str):
     # базовый атрибут
     self.data = []
-    
+
     # загрузка, если разные источнки данных 
     if isinstance(src, list) == True:
         self.columns = src
-      
+
     elif isinstance(src, str) == True: 
       with open(src, mode='r') as file:
           csv_reader = tuple(csv.DictReader(file))
@@ -24,15 +28,16 @@ class Table:
     else:
       self.data.append(row)
 
+  def __str__(self):
+    Table_str = " ".join(self.columns) + "\n"
+    for row in self.data:
+        Table_str += " ".join(str(row[col]) for col in self.columns) + "\n"
+    return Table_str
+
   def __bool__(self) -> bool:
     return len(self.data) > 0
 
-  def __str__(self):
-    Table_str = "" 
-    Table_str += " ".join(self.columns) + "\n"
-    for row in self.data:
-      Table_str += " ".join(str(row[col]) for col in self.columns) + "\n"
-    return Table_str
+
 
 # Создание таблицы с заданными колонками
 table = Table(["a", "b"])
