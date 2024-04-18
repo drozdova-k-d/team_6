@@ -5,7 +5,7 @@ class Table:
     # базовый атрибут
     self.data = []
     
-    # загрузка, если разные источнки данных 
+    # загрузка,если разные источнки данных 
     if isinstance(src, list) == True:
         self.columns = src
       
